@@ -10,20 +10,20 @@ export default {
       80: "0.8",
       100: "1",
     },
-
-    colors: {
-      black: "#050505",
-      blackLight: "#1F1F1F",
-      blackLighter: "#2D2D2D",
-      blackLightest: "#3A3A3A",
-      gray: "#757575",
-      platinum: "#E9E9E9",
-      whiteSmoke: "#F4F4F4",
-      white: "FFFFFF",
-      purple: "A445ED",
-      bittersweet: "FF5252",
-    },
     extend: {
+      colors: {
+        black: "#050505",
+        blackLight: "#1F1F1F",
+        blackLighter: "#2D2D2D",
+        blackLightest: "#3A3A3A",
+        gray: "#757575",
+        platinum: "#E9E9E9",
+        whiteSmoke: "#F4F4F4",
+        white: "#FFFFFF",
+        purple: "#A445ED",
+        bittersweet: "#FF5252",
+      },
+
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
         Lora: ["Lora", "serif"],
