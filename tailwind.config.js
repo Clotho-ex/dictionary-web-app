@@ -36,6 +36,11 @@ export default {
         "body-M": ["1.1rem, 24px"],
         "body-S": ["0.9rem", "17px"],
       },
+      padding: {
+        large: "12rem",
+        medium: "2.5rem",
+        small: "1.5rem",
+      },
     },
   },
   plugins: [],
