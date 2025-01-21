@@ -31,7 +31,7 @@ const NavBarComponent = () => {
   };
 
   return (
-    <nav className="flex flex-row sm:flex-row justify-between items-center lg:px-large sm:p-6 gap-4 sm:gap-0">
+    <nav className="flex flex-row justify-between items-center gap-4 mb-14 sm:gap-0">
       <img
         src="/logo.svg"
         alt="Logo image of a book."
@@ -55,7 +55,9 @@ const NavBarComponent = () => {
           trigger={["click"]}>
           <Typography.Link className="text-black">
             <Space className="w-[120px] sm:w-[140px] justify-between">
-              <span className="text-sm sm:text-base font-bold">{selectedFont}</span>
+              <span className="text-sm sm:text-base font-bold">
+                {selectedFont}
+              </span>
               <DownOutlined className="text-[#a424a7] text-xs sm:text-sm -ml-16" />
             </Space>
           </Typography.Link>
@@ -66,7 +68,7 @@ const NavBarComponent = () => {
           className="bg-black h-[2rem] hidden sm:block"
         />
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ">
           <Switch
             checkedChildren={<span className="text-xs sm:text-sm">Dark</span>}
             unCheckedChildren={
