@@ -12,6 +12,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  transition: background-color 300ms ease-in-out,
+    color 500ms ease-in-out;
+}
+
+.dark {
+  transition: background-color 300ms ease-in-out,
+    color 500ms ease-in-out;
+}
+
 /* Use dark class for background and text color */
 .dark {
   background-color: #121212;

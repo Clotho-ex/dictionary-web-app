@@ -44,11 +44,10 @@ const NavBarComponent = () => {
         {/* Dropdown */}
         <div className="relative inline-block" ref={dropDownRef}>
           <button
-            className="px-4 py-2 focus:outline-purple flex items-center 
-            justify-between gap-2 min-w-[8rem]  dark:border-gray-600 
+            className="px-4 py-2 flex items-center rounded-full outline-none focus:outline-2 focus:outline-offset-2 focus:outline-purple
+            justify-between gap-2 md:min-w-[8rem] 
              dark:bg-gray-800 
-            text-black dark:text-white 
-            hover:bg-gray-100 dark:hover:bg-gray-700"
+            text-black dark:text-white"
             onClick={() => setIsOpen(!isOpen)}>
             <span className="font-bold">{selectedFont}</span>
             <ChevronDownIcon className="h-5 w-5" />
@@ -82,7 +81,7 @@ const NavBarComponent = () => {
         <div className="flex items-center gap-2">
           <button
             className="relative inline-block w-16 h-8 rounded-full 
-            focus:outline-purple transition-colors duration-300 
+            outline-none focus:outline-2 focus:outline-offset-2 focus:outline-purple 
             bg-purple"
             onClick={() => setIsDarkMode(!isDarkMode)}>
             <span
