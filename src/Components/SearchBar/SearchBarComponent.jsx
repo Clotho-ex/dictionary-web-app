@@ -12,7 +12,7 @@ const SearchBarComponent = () => {
           placeholder="Search"
           className="bg-whiteSmoke rounded-xl p-2.5  w-full focus:placeholder:text-transparent placeholder:text-black placeholder:text-bold placeholder:text-heading-S  focus:outline-none focus:ring-2 focus:ring-purple text-black text-lg"
         />
-        <button className="flex items-center justify-center bg-whiteSmoke rounded-xl p-2.5 ml-[-3rem] focus:outline-none focus:ring-2 focus:ring-purple">
+        <button className="flex items-center justify-center bg-whiteSmoke rounded-xl p-2.5 -ml-[45px] focus:outline-none focus:ring-2 focus:ring-purple">
           <Search color="#a445ed" strokeWidth={1.75} />
         </button>
       </div>
