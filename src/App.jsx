@@ -3,13 +3,16 @@ import NavBarComponent from "./Components/NavBar/NavBarComponent";
 import SearchBarComponent from "./Components/SearchBar/SearchBarComponent";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [wordData, setWordData] = useState(null);
 
+  const handleSearchResult = (result) => {
+    setWordData(result); // Update the state with the API result
+  };
   return (
     <>
       <div className="mx-auto max-w-screen-xl text-center px-6 pt-6 sm:px-10 md:px-20">
         <NavBarComponent />
-        <SearchBarComponent />
+        <SearchBarComponent onSearchResult={handleSearchResult} />
       </div>
     </>
   );
