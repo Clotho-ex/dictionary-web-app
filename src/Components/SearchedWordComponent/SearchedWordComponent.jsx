@@ -1,27 +1,32 @@
 import React from "react";
 import AudioPlayComponent from "../AudioPlay/AudioPlayComponent";
+import useDictionaryStore from "../../store/dictionaryStore";
 
-const SearchedWordComponent = ({ word, phonetic, audioUrl }) => {
+const SearchedWordComponent = () => {
+  const { wordData } = useDictionaryStore();
+
+  if (!wordData) return null;
+
   return (
-    <div className="flex justify-between items-center my-8">
+    <div className="flex justify-between items-center my-8 ml-2">
       {/* Left side: Word and Phonetic */}
       <div>
         <h1 className="text-4xl md:text-6xl font-bold text-left capitalize dark:text-white">
-          {word}
+          {wordData.word}
         </h1>
-        {phonetic && (
+        {wordData.phonetic && (
           <p
-            className="text-purple-600 text-left text-lg md:text-xl mt-2"
+            className="text-purple-600 text-left text-sm md:text-xl mt-2"
             style={{ color: "#A445ED" }}>
-            {phonetic}
+            {wordData.phonetic}
           </p>
         )}
       </div>
 
       {/* Right side: Audio Play Button */}
-      {audioUrl && (
+      {wordData.audio && (
         <div className="ml-4">
-          <AudioPlayComponent audioUrl={audioUrl} />
+          <AudioPlayComponent audioUrl={wordData.audio} />
         </div>
       )}
     </div>

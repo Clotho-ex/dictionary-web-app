@@ -1,27 +1,23 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useEffect, useRef } from "react";
 import { MoonIcon, SunIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
-import { ThemeContext } from "../../context/ThemeContext";
-
-const fontFamilies = {
-  "Sans Serif": "Inter, sans-serif",
-  Serif: "Lora, serif",
-  Monospace: "Inconsolata, monospace",
-};
+import { useNavBarStore } from "../../store/navBarStore";
 
 const NavBarComponent = () => {
-  const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
-  const [selectedFont, setSelectedFont] = useState("Sans Serif");
-  const dropDownRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const {
+    isDarkMode,
+    setIsDarkMode,
+    selectedFont,
+    setSelectedFont,
+    isOpen,
+    setIsOpen,
+  } = useNavBarStore();
 
-  const dropDownItems = Object.entries(fontFamilies).map(([label, _]) => ({
+  const dropDownRef = useRef(null);
+
+  const dropDownItems = ["Sans Serif", "Serif", "Monospace"].map((label) => ({
     label,
     key: label,
   }));
-
-  useEffect(() => {
-    document.documentElement.style.fontFamily = fontFamilies[selectedFont];
-  }, [selectedFont]);
 
   useEffect(() => {
     function handleClickOutside(event) {
