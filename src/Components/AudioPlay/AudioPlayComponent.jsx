@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Play, Pause } from "lucide-react";
 
 const AudioPlayButton = ({ audioUrl }) => {
@@ -29,7 +29,7 @@ const AudioPlayButton = ({ audioUrl }) => {
   };
 
   // Handle audio ending
-  React.useEffect(() => {
+  useEffect(() => {
     const audio = audioRef.current;
 
     const handleEnded = () => {
@@ -47,7 +47,7 @@ const AudioPlayButton = ({ audioUrl }) => {
   }, []);
 
   // Update audio source if URL changes
-  React.useEffect(() => {
+  useEffect(() => {
     audioRef.current.src = audioUrl;
   }, [audioUrl]);
 
@@ -56,17 +56,20 @@ const AudioPlayButton = ({ audioUrl }) => {
       onClick={handlePlay}
       disabled={!audioUrl}
       className={`
-        inline-flex items-center justify-center
-        w-8 h-8 rounded-full
+        inline-flex items-center justify-center rounded-full
         ${
           audioUrl
-            ? "bg-blue-500 hover:bg-blue-600 text-white"
+            ? "bg-purple text-white h-20 w-20"
             : "bg-gray-200 text-gray-400 cursor-not-allowed"
         }
         transition-colors duration-200
       `}
       aria-label={isPlaying ? "Pause pronunciation" : "Play pronunciation"}>
-      {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+      {isPlaying ? (
+        <Pause color="black" className="w-8 h-8" />
+      ) : (
+        <Play color="black" className="w-8 h-8 " />
+      )}
     </button>
   );
 };
