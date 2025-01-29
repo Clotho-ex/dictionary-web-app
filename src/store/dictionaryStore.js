@@ -1,7 +1,5 @@
-// src/store/dictionaryStore.js
 import { create } from "zustand";
 
-// API function integrated into the store file
 const fetchWordDefinition = async (word) => {
   // Handle empty or whitespace-only input
   if (!word || !word.trim()) {
