@@ -6,13 +6,21 @@ const fontFamilies = {
   Monospace: "Inconsolata, monospace",
 };
 
+const applyTheme = (isDark) => {
+  document.documentElement.classList.toggle("dark", isDark);
+  document.documentElement.classList.toggle("light", !isDark);
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+};
+
+const initialTheme = localStorage.getItem("theme") === "dark";
+applyTheme(initialTheme);
+
 export const useNavBarStore = create((set) => ({
-  isDarkMode: localStorage.getItem("theme") === "dark",
+  isDarkMode: initialTheme,
+
   setIsDarkMode: (value) =>
     set(() => {
-      document.documentElement.classList.toggle("dark", value);
-      document.documentElement.classList.toggle("light", !value);
-      localStorage.setItem("theme", value ? "dark" : "light");
+      applyTheme(value);
       return { isDarkMode: value };
     }),
 

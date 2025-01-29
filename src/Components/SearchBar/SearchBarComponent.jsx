@@ -63,7 +63,7 @@ const SearchBarComponent = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Search"
-            className="bg-whiteSmoke rounded-xl p-2.5 w-full focus:placeholder:text-transparent placeholder:text-black placeholder:text-bold placeholder:text-heading-S focus:outline-none focus:ring-2 focus:ring-purple text-black text-lg"
+            className="ring-2 ring-black rounded-xl p-2.5 w-full focus:placeholder:text-transparent placeholder:text-black placeholder:font-semibold placeholder:text-heading-S focus:outline-none focus:ring-2 focus:ring-purple text-black text-lg font-semibold"
             disabled={isLoading}
           />
           <button

@@ -41,7 +41,7 @@ const NavBarComponent = () => {
         <div className="relative inline-block" ref={dropDownRef}>
           <button
             className="px-4 py-2 flex items-center rounded-full outline-none focus:outline-2 focus:outline-offset-2 focus:outline-purple
-            justify-between gap-2 md:min-w-[8rem] 
+            justify-between gap-2 min-w-[8rem] 
              dark:bg-gray-800 
             text-black dark:text-white"
             onClick={() => setIsOpen(!isOpen)}>
@@ -51,13 +51,13 @@ const NavBarComponent = () => {
 
           {isOpen && (
             <ul
-              className="absolute left-0 w-full rounded-xl z-10
-             shadow-lg dark:shadow-purple text-left dark:bg-blackLight">
+              className="absolute left-0 min-w-[8rem] rounded-xl z-10
+             shadow-lg dark:shadow-purple text-left bg-white dark:bg-blackLight">
               {dropDownItems.map((item) => (
                 <li
                   key={item.key}
                   className="px-4 py-2 
-                  cursor-pointer 
+                  cursor-pointer font-bold
                   hover:text-purple dark:hover:text-purple
                   text-black dark:text-white"
                   onClick={() => {
@@ -71,7 +71,7 @@ const NavBarComponent = () => {
           )}
         </div>
 
-        <div className="text-3xl -ml-4 text-platinum">|</div>
+        <div className="text-3xl -ml-4 text-black dark:text-platinum font-mono">|</div>
 
         {/* Theme Toggle */}
         <div className="flex items-center gap-2">
