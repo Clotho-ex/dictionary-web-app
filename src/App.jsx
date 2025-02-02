@@ -1,6 +1,7 @@
 import NavBarComponent from "./Components/NavBar/NavBarComponent";
 import SearchBarComponent from "./Components/SearchBar/SearchBarComponent";
 import SearchedWordComponent from "./Components/SearchedWordComponent/SearchedWordComponent";
+import WordDetailsComponent from "./Components/WordDetails/WordDetailsComponent";
 import useDictionaryStore from "./store/dictionaryStore";
 
 function App() {
@@ -17,12 +18,12 @@ function App() {
       )}
       {!isLoading && error?.type && (
         <div className="mt-12">
-          {/* Error is already handled in SearchBarComponent's ErrorDisplay */}
         </div>
       )}
       {!isLoading && wordData && (
-        <div className="mt-12">
+        <div className="mt-12 mb-2">
           <SearchedWordComponent />
+          <WordDetailsComponent />
         </div>
       )}
     </div>

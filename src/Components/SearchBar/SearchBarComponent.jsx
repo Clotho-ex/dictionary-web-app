@@ -1,20 +1,28 @@
 import React, { useState } from "react";
-import { Search } from "lucide-react";
+import { Search, Undo2 } from "lucide-react";
 import useDictionaryStore from "../../store/dictionaryStore";
 
 const SearchBarComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { isLoading, error, searchWord } = useDictionaryStore();
+  const [hasSearched, setHasSearched] = useState(false); // Tracks if search
+  const { isLoading, error, searchWord, resetState } = useDictionaryStore();
 
   const handleSearch = async (e) => {
     e?.preventDefault();
-    searchWord(searchTerm);
+    if (searchTerm.trim()) {
+      await searchWord(searchTerm);
+      setHasSearched(true); // Search triggered
+    }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
+  };
+
+  const handleRefresh = () => {
+    window.location.reload(false);
   };
 
   const ErrorDisplay = () => {
@@ -63,18 +71,21 @@ const SearchBarComponent = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Search"
-            className="ring-2 ring-black rounded-xl p-2.5 w-full focus:placeholder:text-transparent placeholder:text-black placeholder:font-semibold placeholder:text-heading-S focus:outline-none focus:ring-2 focus:ring-purple text-black text-lg font-semibold"
+            className="dark:bg-[#343434] rounded-lg p-2.5 w-full placeholder:font-semibold focus:outline-none focus:ring-2 focus:ring-purple text-lg font-semibold"
             disabled={isLoading}
           />
           <button
             type="submit"
-            aria-label="Search"
-            className="flex items-center justify-center bg-whiteSmoke rounded-xl p-2.5 absolute right-0 focus:outline-none focus:ring-2 focus:ring-purple disabled:opacity-50"
-            disabled={isLoading}>
+            aria-label={searchTerm ? "Clear" : "Search"}
+            className="flex items-center justify-center dark:bg-[#343434] rounded-xl p-2.5 absolute right-0 focus:outline-none focus:ring-2 focus:ring-purple disabled:opacity-50"
+            disabled={isLoading}
+            onClick={searchTerm ? handleRefresh : handleSearch}>
             {isLoading ? (
               <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple"></div>
+            ) : hasSearched ? (
+              <Undo2 color="#a445ed" strokeWidth={1.75} /> // Show Undo after submission
             ) : (
-              <Search color="#a445ed" strokeWidth={1.75} />
+              <Search color="#a445ed" strokeWidth={1.75} /> // Show Search icon initially
             )}
           </button>
         </div>

@@ -42,8 +42,7 @@ const NavBarComponent = () => {
           <button
             className="px-4 py-2 flex items-center rounded-full outline-none focus:outline-2 focus:outline-offset-2 focus:outline-purple
             justify-between gap-2 min-w-[8rem] 
-             dark:bg-gray-800 
-            text-black dark:text-white"
+             dark:bg-gray-800 dark:text-white"
             onClick={() => setIsOpen(!isOpen)}>
             <span className="font-bold">{selectedFont}</span>
             <ChevronDownIcon className="h-5 w-5" />
@@ -59,7 +58,7 @@ const NavBarComponent = () => {
                   className="px-4 py-2 
                   cursor-pointer font-bold
                   hover:text-purple dark:hover:text-purple
-                  text-black dark:text-white"
+                  "
                   onClick={() => {
                     setSelectedFont(item.key);
                     setIsOpen(false);
