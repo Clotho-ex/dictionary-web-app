@@ -4,7 +4,7 @@ import useDictionaryStore from "../../store/dictionaryStore";
 
 const SearchBarComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [hasSearched, setHasSearched] = useState(false); // Tracks if search.
+  const [hasSearched, setHasSearched] = useState(false); // Tracks if search
   const { isLoading, error, searchWord, resetState } = useDictionaryStore();
 
   const handleSearch = async (e) => {
@@ -12,11 +12,15 @@ const SearchBarComponent = () => {
     if (searchTerm.trim()) {
       await searchWord(searchTerm);
       setHasSearched(true); // Search triggered.
+    } else {
+      searchWord("");
+      setHasSearched(true);
     }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       handleSearch();
     }
   };
