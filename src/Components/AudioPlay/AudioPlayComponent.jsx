@@ -59,8 +59,8 @@ const AudioPlayButton = ({ audioUrl }) => {
         inline-flex items-center justify-center rounded-full
         ${
           audioUrl
-            ? "bg-purple text-white h-20 w-20"
-            : "bg-gray-200 text-gray-400 cursor-not-allowed"
+            ? "bg-purple text-white h-20 w-20 hover:bg-violet-600"
+            : "bg-gray-200 cursor-not-allowed"
         }
         transition-colors duration-200
       `}

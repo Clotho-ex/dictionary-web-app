@@ -39,7 +39,7 @@ const fetchWordDefinition = async (word) => {
         partOfSpeech: meaning.partOfSpeech,
         definitions: meaning.definitions.map((def) => ({
           definition: def.definition,
-          example: def.example || "No example available",
+          example: def.example,
         })),
         synonyms: meaning.synonyms || [],
       })),

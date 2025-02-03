@@ -9,15 +9,12 @@ const SearchedWordComponent = () => {
 
   return (
     <div className="flex justify-between items-center my-8 ml-2">
-      {/* Left side: Word and Phonetic */}
       <div>
-        <h1 className="text-4xl md:text-6xl font-semibold text-left capitalize dark:text-white">
+        <h1 className="text-4xl md:text-6xl font-semibold text-left capitalize">
           {wordData.word}
         </h1>
         {wordData.phonetic && (
-          <p
-            className="text-purple-600 font-semibold text-left text-sm md:text-xl mt-2 ml-2"
-            style={{ color: "#A445ED" }}>
+          <p className="text-purple font-semibold text-left text-sm md:text-xl mt-2 ml-2">
             {wordData.phonetic}
           </p>
         )}

@@ -21,8 +21,10 @@ const SearchBarComponent = () => {
     }
   };
 
-  const handleRefresh = () => {
-    window.location.reload(false);
+  const handleReset = () => {
+    setSearchTerm("");
+    resetState();
+    setHasSearched(false);
   };
 
   const ErrorDisplay = () => {
@@ -76,21 +78,20 @@ const SearchBarComponent = () => {
           />
           <button
             type="submit"
-            aria-label={searchTerm ? "Clear" : "Search"}
+            aria-label={hasSearched ? "Reset" : "Search"}
             className="flex items-center justify-center dark:bg-[#343434] rounded-xl p-2.5 absolute right-0 focus:outline-none focus:ring-2 focus:ring-purple disabled:opacity-50"
             disabled={isLoading}
-            onClick={searchTerm ? handleRefresh : handleSearch}>
+            onClick={hasSearched ? handleReset : handleSearch}>
             {isLoading ? (
               <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple"></div>
             ) : hasSearched ? (
-              <Undo2 color="#a445ed" strokeWidth={1.75} /> // Show Undo after submission
+              <Undo2 color="#a445ed" strokeWidth={1.75} />
             ) : (
-              <Search color="#a445ed" strokeWidth={1.75} /> // Show Search icon initially
+              <Search color="#a445ed" strokeWidth={1.75} />
             )}
           </button>
         </div>
       </form>
-
       <ErrorDisplay />
     </div>
   );
