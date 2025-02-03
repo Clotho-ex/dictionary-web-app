@@ -48,7 +48,7 @@ const SearchBarComponent = () => {
       invalidInput: {
         emoji: "🚫",
         title: "Invalid Input",
-        message: "Please enter a valid word (letters and spaces only).",
+        message: "Please enter a valid word.",
       },
       apiError: {
         emoji: "⚠️",
@@ -62,7 +62,7 @@ const SearchBarComponent = () => {
       <div className="flex flex-col items-center justify-center mt-12 space-y-4">
         <span className="text-6xl">{config.emoji}</span>
         <h3 className="text-lg font-bold text-center">{config.title}</h3>
-        <p className="text-center text-gray-500">{config.message}</p>
+        <p className="text-center text-gray-500">{config.message} </p>
       </div>
     );
   };
