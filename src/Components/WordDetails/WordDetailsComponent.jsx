@@ -32,7 +32,6 @@ const WordDetailsComponent = () => {
         <div
           key={`${meaning.partOfSpeech}_${meaningIndex}`}
           className="space-y-4">
-          {/* Part of Speech Header with Divider */}
           <div className="flex items-center gap-4">
             <h2 className="text-xl font-bold capitalize">
               {meaning.partOfSpeech}
