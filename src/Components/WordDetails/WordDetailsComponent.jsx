@@ -3,11 +3,11 @@ import useDictionaryStore from "../../store/dictionaryStore";
 import { SquareArrowOutUpRight } from "lucide-react";
 
 const WordDetailsComponent = () => {
-  const { wordData } = useDictionaryStore();
+  const { wordData, searchWord } = useDictionaryStore();
 
   if (!wordData) return null;
 
-  // Filter only noun and verb meanings
+  // Access all parts of speech.
   const filteredMeanings = wordData.meanings.filter((meaning) =>
     [
       "noun",
@@ -22,8 +22,12 @@ const WordDetailsComponent = () => {
     ].includes(meaning.partOfSpeech.toLowerCase())
   );
 
+  const handleSynonymClick = (synonym) => {
+    searchWord(synonym);
+  };
+
   return (
-    <div className="space-y-8 mt-6">
+    <section className="space-y-8 mt-6">
       {filteredMeanings.map((meaning, meaningIndex) => (
         <div
           key={`${meaning.partOfSpeech}_${meaningIndex}`}
@@ -42,32 +46,33 @@ const WordDetailsComponent = () => {
             {meaning.definitions.slice(0, 5).map((def, index) => (
               <li key={index}>
                 {def.definition}
-
-                {/* Show examples ONLY for verbs */}
                 {meaning.partOfSpeech.toLowerCase() === "verb" &&
                   def.example && (
-                    <p className="text-sm font-normal italic mt-1 ml-4">"{def.example}"</p>
+                    <p className="text-sm font-normal italic mt-1 ml-4">
+                      "{def.example}"
+                    </p>
                   )}
               </li>
             ))}
           </ul>
 
-          {/* Show synonyms ONLY for nouns */}
           {meaning.partOfSpeech.toLowerCase() === "noun" &&
             meaning.synonyms.length > 0 && (
               <div className="flex flex-wrap gap-2 ml-2">
                 <span>Synonyms:</span>
                 {meaning.synonyms.slice(0, 5).map((synonym, index) => (
-                  <span key={index} className="text-purple font-medium">
+                  <button
+                    key={index}
+                    onClick={() => handleSynonymClick(synonym)}
+                    className="text-purple font-medium">
                     {synonym} |
-                  </span>
+                  </button>
                 ))}
               </div>
             )}
         </div>
       ))}
 
-      {/* Source URL */}
       {wordData.sourceUrl && (
         <div className="flex items-center pt-4 border-t text-left">
           <span className="text-md font-medium">Source: </span>
@@ -75,13 +80,16 @@ const WordDetailsComponent = () => {
             href={wordData.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open source in a new tab"
             className="ml-2 mr-3 text-purple underline underline-offset-2 hover:text-violet-600">
-            {wordData.sourceUrl}
+            {wordData.sourceUrl.length > 30
+              ? `${wordData.sourceUrl.slice(0, 30)}...` // Some links overflow on small screens.
+              : wordData.sourceUrl}
           </a>
           <SquareArrowOutUpRight size={20} />
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

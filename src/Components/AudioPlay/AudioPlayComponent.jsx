@@ -46,7 +46,7 @@ const AudioPlayButton = ({ audioUrl }) => {
     };
   }, []);
 
-  // Update audio source if URL changes
+  // Update audio source on URL change.
   useEffect(() => {
     audioRef.current.src = audioUrl;
   }, [audioUrl]);
@@ -55,6 +55,7 @@ const AudioPlayButton = ({ audioUrl }) => {
     <button
       onClick={handlePlay}
       disabled={!audioUrl}
+      aria-label="Listen to pronunciation"
       className={`
         inline-flex items-center justify-center rounded-full
         ${
@@ -63,8 +64,7 @@ const AudioPlayButton = ({ audioUrl }) => {
             : "bg-gray-200 cursor-not-allowed"
         }
         transition-colors duration-200
-      `}
-      aria-label={isPlaying ? "Pause pronunciation" : "Play pronunciation"}>
+      `}>
       {isPlaying ? (
         <Pause color="black" className="w-8 h-8" />
       ) : (

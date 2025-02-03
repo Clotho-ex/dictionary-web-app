@@ -19,8 +19,6 @@ const SearchedWordComponent = () => {
           </p>
         )}
       </div>
-
-      {/* Right side: Audio Play Button */}
       {wordData.audio && (
         <div className="ml-4">
           <AudioPlayComponent audioUrl={wordData.audio} />

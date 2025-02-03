@@ -4,14 +4,14 @@ import useDictionaryStore from "../../store/dictionaryStore";
 
 const SearchBarComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [hasSearched, setHasSearched] = useState(false); // Tracks if search
+  const [hasSearched, setHasSearched] = useState(false); // Tracks if search.
   const { isLoading, error, searchWord, resetState } = useDictionaryStore();
 
   const handleSearch = async (e) => {
     e?.preventDefault();
     if (searchTerm.trim()) {
       await searchWord(searchTerm);
-      setHasSearched(true); // Search triggered
+      setHasSearched(true); // Search triggered.
     }
   };
 
@@ -73,18 +73,18 @@ const SearchBarComponent = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Search"
+            aria-label="Search for a word"
             className="dark:bg-[#343434] rounded-lg p-2.5 w-full placeholder:font-semibold focus:outline-none focus:ring-2 focus:ring-purple text-lg font-semibold"
             disabled={isLoading}
           />
           <button
             type="submit"
+            role="button"
             aria-label={hasSearched ? "Reset" : "Search"}
             className="flex items-center justify-center dark:bg-[#343434] rounded-xl p-2.5 absolute right-0 focus:outline-none focus:ring-2 focus:ring-purple disabled:opacity-50"
             disabled={isLoading}
             onClick={hasSearched ? handleReset : handleSearch}>
-            {isLoading ? (
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple"></div>
-            ) : hasSearched ? (
+            {hasSearched ? (
               <Undo2 color="#a445ed" strokeWidth={1.75} />
             ) : (
               <Search color="#a445ed" strokeWidth={1.75} />
