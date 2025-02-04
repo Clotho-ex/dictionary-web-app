@@ -14,7 +14,7 @@ const SearchedWordComponent = () => {
           {wordData.word}
         </h1>
         {wordData.phonetic && (
-          <p className="text-purple font-semibold text-left text-sm md:text-xl mt-2 ml-2">
+          <p className="text-purple font-semibold text-left text-sm md:text-xl mt-2">
             {wordData.phonetic}
           </p>
         )}
