@@ -34,7 +34,6 @@ Users should be able to:
 ### Screenshot
 
 ![](/public/project-screenshot.png)
-![](/public/project-screenshot-mobile.png)
 
 ### Links
 
