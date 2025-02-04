@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { MoonIcon, SunIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { useNavBarStore } from "../../store/navBarStore";
+import { ArrowDown, Moon, Sun } from "lucide-react";
 
 const NavBarComponent = () => {
   const {
@@ -45,7 +45,7 @@ const NavBarComponent = () => {
             justify-between gap-2 min-w-[8rem]"
             onClick={() => setIsOpen(!isOpen)}>
             <span className="font-bold">{selectedFont}</span>
-            <ChevronDownIcon className="h-5 w-5" />
+            <ArrowDown size={20} />
           </button>
 
           {isOpen && (
@@ -88,11 +88,7 @@ const NavBarComponent = () => {
               ${isDarkMode ? "translate-x-8" : ""} 
               bg-white`}></span>
           </button>
-          {isDarkMode ? (
-            <MoonIcon className="h-6 w-6" />
-          ) : (
-            <SunIcon className="h-6 w-6" />
-          )}
+          {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
         </div>
       </div>
     </nav>

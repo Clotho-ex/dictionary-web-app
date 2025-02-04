@@ -74,7 +74,9 @@ const WordDetailsComponent = () => {
 
       {wordData.sourceUrl && (
         <div className="flex items-center pt-4 border-t text-left">
-          <span className="text-md font-medium">Source: </span>
+          <span className="text-md font-medium text-blackLightest">
+            Source:{" "}
+          </span>
           <a
             href={wordData.sourceUrl}
             target="_blank"
