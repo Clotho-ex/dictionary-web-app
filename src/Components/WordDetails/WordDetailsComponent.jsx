@@ -82,9 +82,9 @@ const WordDetailsComponent = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open source in a new tab"
-            className="ml-2 mr-3 text-purple underline underline-offset-2 hover:text-violet-600">
+            className="ml-2 mr-1 text-purple underline underline-offset-2 hover:text-violet-600">
             {wordData.sourceUrl.length > 30
-              ? `${wordData.sourceUrl.slice(0, 30)}...` // Some links overflow on small screens.
+              ? `${wordData.sourceUrl.slice(0, 25)}` // Some links overflow on small screens.
               : wordData.sourceUrl}
           </a>
           <SquareArrowOutUpRight size={20} />
