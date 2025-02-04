@@ -47,7 +47,7 @@ const WordDetailsComponent = () => {
                 {def.definition}
                 {meaning.partOfSpeech.toLowerCase() === "verb" &&
                   def.example && (
-                    <p className="text-sm text-blackLightest font-normal italic mt-1 ml-4">
+                    <p className="text-sm text-blackLightest font-normal italic mt-1 ">
                       "{def.example}"
                     </p>
                   )}
