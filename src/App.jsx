@@ -12,7 +12,7 @@ function App() {
       <NavBarComponent />
       <SearchBarComponent />
       {isLoading && (
-        <div className="mt-12 text-lg font-semibold text-gray-600">
+        <div className="mt-12 text-lg font-semibold">
           Loading...
         </div>
       )}
